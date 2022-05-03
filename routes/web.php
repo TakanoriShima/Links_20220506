@@ -46,7 +46,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('communities', 'CommunitiesController', ['only' => ['index', 'create', 'store', 'show']]);
     
     //　コミュニティ申請関係
-    Route::resource('participations', 'ParticipationsController', ['only' => ['index', 'create', 'store', 'show']]);
+    Route::group(['prefix' => 'communities/{id}'], function () {
+        // いいねした投稿一覧
+        Route::resource('participations', 'ParticipationsController', ['only' => ['index', 'create', 'store', 'show', 'update']]);
+        // Route::post('approval', 'ParticipationsController@participation_approval');
+        
+    });
     
     //トピック関係
     Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'show']]);
