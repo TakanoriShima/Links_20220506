@@ -20,4 +20,13 @@ class Topic extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    /**
+     * このトピックを所有するユーザー。（Userモデルとの多対1の関係を定義）
+     */
+    public function community()
+    {
+        return $this->belongsTo(Community::class);
+    }
+    
 }

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User; //追加
+use App\Topic; // 追加
 
 
 class Community extends Model
@@ -23,9 +24,10 @@ class Community extends Model
         return $this->belongsTo(User::class);
     }
     
-    /**このコミュニティが所有するトピック
-     * 
-     */public function topics()
+    /**
+     * このコミュニティが所有するトピック一覧（Topicモデルとの1対多の関係を定義）
+     */
+     public function topics()
     {
         return $this->hasMany(Topic::class);
     }

@@ -24,7 +24,7 @@
   <img id="img" src="{{ asset('images/profilesample.png')}}" alt="プロフィール">
 </div>
 <div class="topic_creat">
-  <a href="topics/create">+トピック作成</a>
+  <a href="/communities/{{ $community->id }}/topics/create">+トピック作成</a>
 </div>
 <div class="gr">
     <div><a href="community_top.html">トップ</a></div>
@@ -34,6 +34,7 @@
   </div>
   <div class="bar"> </div>
   
+<p>トピックス {{ count($topics) }}件 </p> 
 @foreach($topics as $topic)
 <div class="topic">
   <input type="button" value="返信する" class="reply"/>
